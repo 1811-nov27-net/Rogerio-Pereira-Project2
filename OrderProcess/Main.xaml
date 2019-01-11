@@ -70,7 +70,7 @@
     </Flowchart.Variables>
     <Flowchart.StartNode>
       <FlowStep x:Name="__ReferenceID0" sap2010:WorkflowViewState.IdRef="FlowStep_9">
-        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Get Configuratons" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Config">
+        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Get Configurations" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Config">
           <ui:InvokeWorkflowFile.Arguments>
             <scg:Dictionary x:TypeArguments="x:String, Argument" />
           </ui:InvokeWorkflowFile.Arguments>
@@ -83,25 +83,21 @@
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
             <FlowStep.Next>
-              <FlowStep x:Name="__ReferenceID2">
-                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Login" UnSafe="False" WorkflowFileName="Login">
+              <FlowStep x:Name="__ReferenceID2" sap2010:WorkflowViewState.IdRef="FlowStep_12">
+                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Login" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Login">
                   <ui:InvokeWorkflowFile.Arguments>
                     <scg:Dictionary x:TypeArguments="x:String, Argument" />
                   </ui:InvokeWorkflowFile.Arguments>
-                  <sap2010:WorkflowViewState.IdRef>InvokeWorkflowFile_3</sap2010:WorkflowViewState.IdRef>
                 </ui:InvokeWorkflowFile>
                 <FlowStep.Next>
-                  <FlowStep x:Name="__ReferenceID3">
-                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Automation" UnSafe="False" WorkflowFileName="Automation">
+                  <FlowStep x:Name="__ReferenceID3" sap2010:WorkflowViewState.IdRef="FlowStep_11">
+                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Automation" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Automation">
                       <ui:InvokeWorkflowFile.Arguments>
                         <scg:Dictionary x:TypeArguments="x:String, Argument" />
                       </ui:InvokeWorkflowFile.Arguments>
-                      <sap2010:WorkflowViewState.IdRef>InvokeWorkflowFile_4</sap2010:WorkflowViewState.IdRef>
                     </ui:InvokeWorkflowFile>
-                    <sap2010:WorkflowViewState.IdRef>FlowStep_11</sap2010:WorkflowViewState.IdRef>
                   </FlowStep>
                 </FlowStep.Next>
-                <sap2010:WorkflowViewState.IdRef>FlowStep_12</sap2010:WorkflowViewState.IdRef>
               </FlowStep>
             </FlowStep.Next>
           </FlowStep>
@@ -112,7 +108,7 @@
     <x:Reference>__ReferenceID1</x:Reference>
     <x:Reference>__ReferenceID2</x:Reference>
     <x:Reference>__ReferenceID3</x:Reference>
-    <sads:DebugSymbol.Symbol>dzRDOlxSZXZhdHVyZVxQcm9qZWN0c1xQcm9qZWN0MlxPcmRlclByb2Nlc3NcTWFpbi54YW1sCUEDdA8CAQFJCU0hAgEIUA1UJQIBBlcRXCkCAQRfFWQtAgECSbIBSboBAgEJUK8BULoBAgEHV3dXfgIBBV+AAV+MAQIBAw==</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>dzRDOlxSZXZhdHVyZVxQcm9qZWN0c1xQcm9qZWN0MlxPcmRlclByb2Nlc3NcTWFpbi54YW1sCUEDcA8CAQFJCU0hAgEIUA1UJQIBBlcRWykCAQReFWItAgECSbMBSbsBAgEJUK8BULoBAgEHV64BV7UBAgEFXrcBXsMBAgED</sads:DebugSymbol.Symbol>
   </Flowchart>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
@@ -189,7 +185,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Main_1" sap:VirtualizedContainerService.HintSize="654,716" />
+      <sap2010:ViewStateData Id="Main_1" sap:VirtualizedContainerService.HintSize="654,756" />
     </sap2010:ViewStateManager>
   </sap2010:WorkflowViewState.ViewStateManager>
 </Activity>

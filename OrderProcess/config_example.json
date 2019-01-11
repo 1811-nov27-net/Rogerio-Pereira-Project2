@@ -1,4 +1,13 @@
 {
     "username" : "",
-    "password" : ""
+    "password" : "",
+    "card": {
+        "number": "",
+        "cvv": "",
+        "type": "Visa or Mastercard",
+        "exMonth": "",
+        "exYear": ""
+    },
+    "url": "http://training.openspan.com/login",
+    "excelFile": "Orders"
 }

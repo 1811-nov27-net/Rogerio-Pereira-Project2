@@ -1,0 +1,19 @@
+Make this app for IE > 11
+Use Orders.xlsx
+    product
+    address
+use config.txt for credentials
+    username
+    password
+    card details
+        card_number
+        cvv 
+        type
+        expiration month
+        expiration year
+order items
+enter billing details
+enter card details
+make an order
+note the order # or exception
+write the status and notes if exception occurs
