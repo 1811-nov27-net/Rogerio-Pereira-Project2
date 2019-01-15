@@ -146,7 +146,7 @@
                 </ui:OpenBrowser>
                 <FlowStep.Next>
                   <FlowStep x:Name="__ReferenceID3" sap2010:WorkflowViewState.IdRef="FlowStep_17">
-                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="UpdateExcel.xaml">
+                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="save changes to excel" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="UpdateExcel.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
                         <InArgument x:TypeArguments="sd:DataTable" x:Key="dt_Orders">[dt_Orders]</InArgument>
                         <InArgument x:TypeArguments="x:String" x:Key="orderNumber">[orderNumber]</InArgument>
@@ -165,7 +165,7 @@
     <x:Reference>__ReferenceID1</x:Reference>
     <x:Reference>__ReferenceID2</x:Reference>
     <x:Reference>__ReferenceID3</x:Reference>
-    <sads:DebugSymbol.Symbol>dzRDOlxSZXZhdHVyZVxQcm9qZWN0c1xQcm9qZWN0MlxPcmRlclByb2Nlc3NcTWFpbi54YW1sJ04DqQEPAgEBVglaIQIBMF0NYyUCASlmEZIBIgIBCpUBFZsBLQIBAlhHWE8CATJWswFWuwECATFfT19aAgEuYUlhcAIBLWBQYFwCAStdrwFdvwECASpmxwFm6wECAShsF48BIgIBC5kBXpkBdQIBCJcBVpcBYQIBBpgBVJgBYQIBBJUBwgGVAdQBAgEDcBl2MQIBIncZjQEeAgENjgEZjgGAAQIBDHNRc3cCASd0W3RpAgElclVyewIBJHC2AXDCAQIBI3cndz4CAQ55HYsBKAIBEHoffjcCAR5/H4oBNwIBEXxgfGsCASB6vAF6yAECAR+FAVqFAX4CAR2GAVmGAXwCARyIAWmIAYABAgEagwFWgwF2AgEZhAFXhAF4AgEYgQFhgQFtAgEWhwFfhwFsAgEUggFdggGAAQIBE3/LAX/aAQIBEg==</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>dzRDOlxSZXZhdHVyZVxQcm9qZWN0c1xQcm9qZWN0MlxPcmRlclByb2Nlc3NcTWFpbi54YW1sJ04DqQEPAgEBVglaIQIBMF0NYyUCASlmEZIBIgIBCpUBFZsBLQIBAlhHWE8CATJWswFWuwECATFfT19aAgEuYUlhcAIBLWBQYFwCAStdrwFdvwECASpmxwFm6wECAShsF48BIgIBC5kBXpkBdQIBCJcBVpcBYQIBBpgBVJgBYQIBBJUBwwGVAdUBAgEDcBl2MQIBIncZjQEeAgENjgEZjgGAAQIBDHNRc3cCASd0W3RpAgElclVyewIBJHC2AXDCAQIBI3cndz4CAQ55HYsBKAIBEHoffjcCAR5/H4oBNwIBEXxgfGsCASB6vAF6yAECAR+FAVqFAX4CAR2GAVmGAXwCARyIAWmIAYABAgEagwFWgwF2AgEZhAFXhAF4AgEYgQFhgQFtAgEWhwFfhwFsAgEUggFdggGAAQIBE3/LAX/aAQIBEg==</sads:DebugSymbol.Symbol>
   </Flowchart>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
@@ -221,7 +221,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="InvokeWorkflowFile_10" sap:VirtualizedContainerService.HintSize="314,87">
+      <sap2010:ViewStateData Id="InvokeWorkflowFile_10" sap:VirtualizedContainerService.HintSize="200,51">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
