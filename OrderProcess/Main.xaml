@@ -114,25 +114,30 @@
                             <OutArgument x:TypeArguments="x:Boolean" x:Key="loginSuccess">[loginSuccess]</OutArgument>
                           </ui:InvokeWorkflowFile.Arguments>
                         </ui:InvokeWorkflowFile>
-                        <If Condition="[loginSuccess = true]">
+                        <If Condition="[loginSuccess = true]" sap2010:WorkflowViewState.IdRef="If_1">
                           <If.Then>
-                            <Sequence>
-                              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Order" UnSafe="False" WorkflowFileName="Order.xaml">
+                            <Sequence sap2010:WorkflowViewState.IdRef="Sequence_3">
+                              <Sequence.Variables>
+                                <Variable x:TypeArguments="x:String" Name="orderNumber" />
+                              </Sequence.Variables>
+                              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Order" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="Order.xaml">
                                 <ui:InvokeWorkflowFile.Arguments>
-                                  <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                                  <InArgument x:TypeArguments="sd:DataTable" x:Key="dt_Orders">[dt_Orders]</InArgument>
                                 </ui:InvokeWorkflowFile.Arguments>
-                                <sap2010:WorkflowViewState.IdRef>InvokeWorkflowFile_8</sap2010:WorkflowViewState.IdRef>
                               </ui:InvokeWorkflowFile>
-                              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" UnSafe="False" WorkflowFileName="Shipping.xaml">
+                              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="Shipping.xaml">
                                 <ui:InvokeWorkflowFile.Arguments>
-                                  <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                                  <InArgument x:TypeArguments="sd:DataTable" x:Key="dt_Address">[dt_Address]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="cardNumber">[config("card")("number").ToString]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="cvv">[config("card")("cvv").ToString]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="type">[config("card")("type").ToString]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="exMonth">[config("card")("exMonth").ToString]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="exYear">[config("card")("exYear").ToString]</InArgument>
+                                  <OutArgument x:TypeArguments="x:String" x:Key="orderNumber">[orderNumber]</OutArgument>
                                 </ui:InvokeWorkflowFile.Arguments>
-                                <sap2010:WorkflowViewState.IdRef>InvokeWorkflowFile_9</sap2010:WorkflowViewState.IdRef>
                               </ui:InvokeWorkflowFile>
-                              <sap2010:WorkflowViewState.IdRef>Sequence_3</sap2010:WorkflowViewState.IdRef>
                             </Sequence>
                           </If.Then>
-                          <sap2010:WorkflowViewState.IdRef>If_1</sap2010:WorkflowViewState.IdRef>
                         </If>
                         <ui:CloseTab Browser="{x:Null}" DisplayName="Close Tab" sap2010:WorkflowViewState.IdRef="CloseTab_1" />
                       </Sequence>
@@ -148,7 +153,7 @@
     <x:Reference>__ReferenceID0</x:Reference>
     <x:Reference>__ReferenceID1</x:Reference>
     <x:Reference>__ReferenceID2</x:Reference>
-    <sads:DebugSymbol.Symbol>dzRDOlxSZXZhdHVyZVxQcm9qZWN0c1xQcm9qZWN0MlxPcmRlclByb2Nlc3NcTWFpbi54YW1sGU4DmAEPAgEBVAlYIQIBG1sNYSUCARRkEY0BIgIBAlZHVk8CAR1UswFUuwECARxdT11aAgEZX0lfcAIBGF5QXlwCARZbrwFbvwECARVkxwFk6wECARNqF4oBIgIBA24ZdDECAQ11GYgBHgIBBYkBGYkBgAECAQRxUXF3AgEScltyaQIBEHBVcHsCAQ9utgFuwgECAQ51J3U+AgEGdx2FASgCAQh4H303AgELfh+DATcCAQl4hQF4kQECAQx+lAF+owECAQo=</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>dzRDOlxSZXZhdHVyZVxQcm9qZWN0c1xQcm9qZWN0MlxPcmRlclByb2Nlc3NcTWFpbi54YW1sIU4DnQEPAgEBVAlYIQIBJlsNYSUCAR9kEZIBIgIBAlZHVk8CAShUswFUuwECASddT11aAgEkX0lfcAIBI15QXlwCASFbrwFbvwECASBkxwFk6wECAR5qF48BIgIBA24ZdDECARh1GY0BHgIBBY4BGY4BgAECAQRxUXF3AgEdcltyaQIBG3BVcHsCARputgFuwgECARl1J3U+AgEGdx2LASgCAQh7H383AgEUgAEfigE3AgEJfWB9awIBFnu8AXvIAQIBFYYBWoYBfgIBE4cBWYcBfAIBEoQBVoQBdgIBEYUBV4UBeAIBEIIBYYIBbQIBDogBX4gBbAIBDIMBXYMBgAECAQuAAcsBgAHaAQIBCg==</sads:DebugSymbol.Symbol>
   </Flowchart>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>

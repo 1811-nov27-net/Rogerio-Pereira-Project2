@@ -5,7 +5,7 @@
         "number": "",
         "cvv": "",
         "type": "Visa or Mastercard",
-        "exMonth": "",
+        "exMonth": "July",
         "exYear": ""
     },
     "url": "http://training.openspan.com/login",
