@@ -78,6 +78,8 @@
   <Flowchart sap2010:WorkflowViewState.IdRef="Flowchart_3">
     <Flowchart.Variables>
       <Variable x:TypeArguments="njl:JObject" Name="config" />
+      <Variable x:TypeArguments="x:String" Name="orderNumber" />
+      <Variable x:TypeArguments="x:String" Name="orderExceptionMessage" />
     </Flowchart.Variables>
     <Flowchart.StartNode>
       <FlowStep x:Name="__ReferenceID0" sap2010:WorkflowViewState.IdRef="FlowStep_9">
@@ -117,9 +119,6 @@
                         <If Condition="[loginSuccess = true]" sap2010:WorkflowViewState.IdRef="If_1">
                           <If.Then>
                             <Sequence sap2010:WorkflowViewState.IdRef="Sequence_3">
-                              <Sequence.Variables>
-                                <Variable x:TypeArguments="x:String" Name="orderNumber" />
-                              </Sequence.Variables>
                               <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Order" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="Order.xaml">
                                 <ui:InvokeWorkflowFile.Arguments>
                                   <InArgument x:TypeArguments="sd:DataTable" x:Key="dt_Orders">[dt_Orders]</InArgument>
@@ -134,6 +133,7 @@
                                   <InArgument x:TypeArguments="x:String" x:Key="exMonth">[config("card")("exMonth").ToString]</InArgument>
                                   <InArgument x:TypeArguments="x:String" x:Key="exYear">[config("card")("exYear").ToString]</InArgument>
                                   <OutArgument x:TypeArguments="x:String" x:Key="orderNumber">[orderNumber]</OutArgument>
+                                  <OutArgument x:TypeArguments="x:String" x:Key="orderExceptionMessage">[orderExceptionMessage]</OutArgument>
                                 </ui:InvokeWorkflowFile.Arguments>
                               </ui:InvokeWorkflowFile>
                             </Sequence>
@@ -144,6 +144,17 @@
                     </ActivityAction>
                   </ui:OpenBrowser.Body>
                 </ui:OpenBrowser>
+                <FlowStep.Next>
+                  <FlowStep x:Name="__ReferenceID3" sap2010:WorkflowViewState.IdRef="FlowStep_17">
+                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="UpdateExcel.xaml">
+                      <ui:InvokeWorkflowFile.Arguments>
+                        <InArgument x:TypeArguments="sd:DataTable" x:Key="dt_Orders">[dt_Orders]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="orderNumber">[orderNumber]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="orderExceptionMessage">[orderExceptionMessage]</InArgument>
+                      </ui:InvokeWorkflowFile.Arguments>
+                    </ui:InvokeWorkflowFile>
+                  </FlowStep>
+                </FlowStep.Next>
               </FlowStep>
             </FlowStep.Next>
           </FlowStep>
@@ -153,7 +164,8 @@
     <x:Reference>__ReferenceID0</x:Reference>
     <x:Reference>__ReferenceID1</x:Reference>
     <x:Reference>__ReferenceID2</x:Reference>
-    <sads:DebugSymbol.Symbol>dzRDOlxSZXZhdHVyZVxQcm9qZWN0c1xQcm9qZWN0MlxPcmRlclByb2Nlc3NcTWFpbi54YW1sIU4DnQEPAgEBVAlYIQIBJlsNYSUCAR9kEZIBIgIBAlZHVk8CAShUswFUuwECASddT11aAgEkX0lfcAIBI15QXlwCASFbrwFbvwECASBkxwFk6wECAR5qF48BIgIBA24ZdDECARh1GY0BHgIBBY4BGY4BgAECAQRxUXF3AgEdcltyaQIBG3BVcHsCARputgFuwgECARl1J3U+AgEGdx2LASgCAQh7H383AgEUgAEfigE3AgEJfWB9awIBFnu8AXvIAQIBFYYBWoYBfgIBE4cBWYcBfAIBEoQBVoQBdgIBEYUBV4UBeAIBEIIBYYIBbQIBDogBX4gBbAIBDIMBXYMBgAECAQuAAcsBgAHaAQIBCg==</sads:DebugSymbol.Symbol>
+    <x:Reference>__ReferenceID3</x:Reference>
+    <sads:DebugSymbol.Symbol>dzRDOlxSZXZhdHVyZVxQcm9qZWN0c1xQcm9qZWN0MlxPcmRlclByb2Nlc3NcTWFpbi54YW1sJ04DqQEPAgEBVglaIQIBMF0NYyUCASlmEZIBIgIBCpUBFZsBLQIBAlhHWE8CATJWswFWuwECATFfT19aAgEuYUlhcAIBLWBQYFwCAStdrwFdvwECASpmxwFm6wECAShsF48BIgIBC5kBXpkBdQIBCJcBVpcBYQIBBpgBVJgBYQIBBJUBwgGVAdQBAgEDcBl2MQIBIncZjQEeAgENjgEZjgGAAQIBDHNRc3cCASd0W3RpAgElclVyewIBJHC2AXDCAQIBI3cndz4CAQ55HYsBKAIBEHoffjcCAR5/H4oBNwIBEXxgfGsCASB6vAF6yAECAR+FAVqFAX4CAR2GAVmGAXwCARyIAWmIAYABAgEagwFWgwF2AgEZhAFXhAF4AgEYgQFhgQFtAgEWhwFfhwFsAgEUggFdggGAAQIBE3/LAX/aAQIBEg==</sads:DebugSymbol.Symbol>
   </Flowchart>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
@@ -202,10 +214,25 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="OpenBrowser_1" sap:VirtualizedContainerService.HintSize="500,897">
+      <sap2010:ViewStateData Id="OpenBrowser_1" sap:VirtualizedContainerService.HintSize="200,51">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="InvokeWorkflowFile_10" sap:VirtualizedContainerService.HintSize="314,87">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="FlowStep_17">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">200,435.5</av:Point>
+            <av:Size x:Key="ShapeSize">200,51</av:Size>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
@@ -214,6 +241,7 @@
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:Point x:Key="ShapeLocation">200,334.5</av:Point>
             <av:Size x:Key="ShapeSize">200,51</av:Size>
+            <av:PointCollection x:Key="ConnectorLocation">300,385.5 300,435.5</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
