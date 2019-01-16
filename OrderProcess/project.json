@@ -11,7 +11,7 @@
   },
   "schemaVersion": "3.2",
   "studioVersion": "18.4.1.0",
-  "projectVersion": "1.0.0.0",
+  "projectVersion": "1.0.6955.20791",
   "runtimeOptions": {
     "autoDispose": false,
     "excludedLoggedData": [
@@ -23,5 +23,18 @@
   "libraryOptions": {
     "includeOriginalXaml": false,
     "privateWorkflows": []
+  },
+  "arguments": {
+    "input": [],
+    "output": [
+      {
+        "name": "dt_Orders",
+        "type": "System.Data.DataTable, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      },
+      {
+        "name": "dt_Address",
+        "type": "System.Data.DataTable, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      }
+    ]
   }
 }

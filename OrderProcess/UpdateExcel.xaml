@@ -68,13 +68,21 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Plugin.Workflow</AssemblyReference>
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap2010:WorkflowViewState.IdRef="Sequence_3">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="status" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="filename" />
     </Sequence.Variables>
+    <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="Project2_ExcelFile" DisplayName="Get Asset">
+      <ui:GetRobotAsset.Value>
+        <OutArgument x:TypeArguments="ui:GenericValue">[filename]</OutArgument>
+      </ui:GetRobotAsset.Value>
+      <sap2010:WorkflowViewState.IdRef>GetRobotAsset_1</sap2010:WorkflowViewState.IdRef>
+    </ui:GetRobotAsset>
     <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dt_Orders]" DisplayName="Stores status" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
@@ -142,7 +150,7 @@
         </ActivityAction>
       </ui:ForEachRow.Body>
     </ui:ForEachRow>
-    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="save excel range" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" WorkbookPath="Orders.xlsx">
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="save excel range" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" WorkbookPath="[filename]">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
@@ -154,11 +162,18 @@
         </ActivityAction>
       </ui:ExcelApplicationScope.Body>
     </ui:ExcelApplicationScope>
-    <ui:LogMessage DisplayName="Log Message" Level="Info" Message="Excel file saved" sap2010:WorkflowViewState.IdRef="LogMessage_1" />
-    <sads:DebugSymbol.Symbol>dztDOlxSZXZhdHVyZVxQcm9qZWN0c1xQcm9qZWN0MlxPcmRlclByb2Nlc3NcVXBkYXRlRXhjZWwueGFtbCNKA58BDgIBAU4FkAEVAgEMkQEFnAEgAgEEnQEFnQGHAQIBAk42TkMCASpUC40BFgIBDZEBmQGRAaYBAgELlwELmQEWAgEFnQFDnQFVAgEDVQ1cFgIBJl0NjAESAgEOmAENmAHAAQIBBlo4WlACASlXOVdBAgEnXRtdXQIBD18RcBwCAR5zEYoBHAIBEpgBuQGYAb0BAgEKmAE9mAFKAgEImAGjAZgBqwECAQdgE2ccAgEjaBNvHAIBH3QTiQEYAgETZT5lRAIBJWI/Yk4CASRtPm1cAgEhaj9qTQIBIHQhdDoCARR2F4cBIgIBFncZfiICARt/GYYBIgIBF3xEfEwCAR15RXlUAgEchAFEhAFbAgEZgQFFgQFTAgEY</sads:DebugSymbol.Symbol>
+    <ui:LogMessage DisplayName="Log Message" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="Excel file saved" />
+    <sads:DebugSymbol.Symbol>dztDOlxSZXZhdHVyZVxQcm9qZWN0c1xQcm9qZWN0MlxPcmRlclByb2Nlc3NcVXBkYXRlRXhjZWwueGFtbCZLA6cBDgIBAVAFVRgCASxWBZgBFQIBDJkBBaQBIAIBBKUBBaUBhwECAQJSOFJCAgEuUDZQSgIBLVY2VkMCASpcC5UBFgIBDZkBmQGZAaUBAgELnwELoQEWAgEFpQFypQGEAQIBA10NZBYCASZlDZQBEgIBDqABDaABwAECAQZiOGJQAgEpXzlfQQIBJ2UbZV0CAQ9nEXgcAgEeexGSARwCARKgAbkBoAG9AQIBCqABPaABSgIBCKABowGgAasBAgEHaBNvHAIBI3ATdxwCAR98E5EBGAIBE20+bUQCASVqP2pOAgEkdT51XAIBIXI/ck0CASB8IXw6AgEUfhePASICARZ/GYYBIgIBG4cBGY4BIgIBF4QBRIQBTAIBHYEBRYEBVAIBHIwBRIwBWwIBGYkBRYkBUwIBGA==</sads:DebugSymbol.Symbol>
   </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="GetRobotAsset_1" sap:VirtualizedContainerService.HintSize="314,22">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
       <sap2010:ViewStateData Id="Assign_1" sap:VirtualizedContainerService.HintSize="464,60" />
       <sap2010:ViewStateData Id="Assign_2" sap:VirtualizedContainerService.HintSize="242,60" />
       <sap2010:ViewStateData Id="Assign_3" sap:VirtualizedContainerService.HintSize="242,60" />
@@ -221,14 +236,14 @@
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
       <sap2010:ViewStateData Id="LogMessage_1" sap:VirtualizedContainerService.HintSize="314,91" />
-      <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="336,397">
+      <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="336,459">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="UpdateExcel_1" sap:VirtualizedContainerService.HintSize="376,477" />
+      <sap2010:ViewStateData Id="UpdateExcel_1" sap:VirtualizedContainerService.HintSize="376,539" />
     </sap2010:ViewStateManager>
   </sap2010:WorkflowViewState.ViewStateManager>
 </Activity>
